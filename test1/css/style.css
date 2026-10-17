@@ -1,30 +1,10 @@
-/* Vazir font (OFL) loaded from jsDelivr CDN
-   Source: https://github.com/rastikerdar/vazir-font
-   License: SIL Open Font License (OFL) - allowed for bundling and redistribution
-*/
-@font-face {
-  font-family: 'Vazir';
-  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@latest/dist/font-face/Vazir.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@latest/dist/font-face/Vazir.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Vazir';
-  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@latest/dist/font-face/Vazir-Bold.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@latest/dist/font-face/Vazir-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 :root{--bg:#F4F5F7;--s:#fff;--s2:#ECEEF2;--tx:#15171C;--mu:#5C6472;--ln:rgba(21,23,28,.09);--ac:#D4410F;--on:#fff;--c1:#D4410F;--c2:#E0A030;--c3:#6F86B3;--o:left;color-scheme:light}
 [data-t=dark]{--bg:#0F1114;--s:#171A1F;--s2:#20242B;--tx:#ECEEF2;--mu:#9BA3B2;--ln:rgba(255,255,255,.09);--ac:#FF7A4F;--on:#1A0E09;--c1:#FF7A4F;--c2:#E9B04D;--c3:#8DA3D1;color-scheme:dark}
 [dir=rtl]{--o:right}
 *{box-sizing:border-box;margin:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:88px}
 body{background:var(--bg);color:var(--tx);font:16px/1.75 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",Tahoma,sans-serif;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
-[lang=fa] body{line-height:1.95;font-family:'Vazir', "Noto Sans Arabic", Tahoma, sans-serif}
+[lang=fa] body{line-height:1.95}
 [lang=en] [data-l=fa],[lang=fa] [data-l=en]{display:none!important}
 a,button,summary{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;touch-action:manipulation}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
