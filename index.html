@@ -7,7 +7,14 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,sans-serif;background:#0d1117;color:#c9d1d9;padding:1rem;line-height:1.5}
-h1{font-size:1.2rem;color:#58a6ff;margin-bottom:.8rem}
+header{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem;flex-wrap:wrap}
+h1{font-size:1.2rem;color:#58a6ff;margin:0}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:transparent;flex-shrink:0;transition:background .2s}
+.dot.err{background:#f85149;box-shadow:0 0 0 2px #f8514933}
+input[type=search]{flex:1;min-width:120px;padding:.3rem .5rem;border:1px solid #30363d;border-radius:4px;background:#0d1117;color:#c9d1d9;font-size:.85rem}
+input[type=search]:focus{outline:none;border-color:#58a6ff}
+button{padding:.3rem .6rem;border:1px solid #30363d;border-radius:4px;background:#21262d;color:#c9d1d9;cursor:pointer;font-size:.8rem}
+button:hover{background:#30363d;border-color:#58a6ff}
 #tree{font-family:ui-monospace,Menlo,monospace;font-size:.9rem;overflow-x:auto}
 .r{display:flex;align-items:center;padding:.1rem .3rem;border-radius:4px;white-space:nowrap}
 .r:hover{background:#161b22}
@@ -17,46 +24,61 @@ h1{font-size:1.2rem;color:#58a6ff;margin-bottom:.8rem}
 .i{margin:0 .35rem 0 .15rem;flex-shrink:0}
 .r a{color:#c9d1d9;text-decoration:none}
 .r a:hover{color:#58a6ff;text-decoration:underline}
-.n{color:#c9d1d9;cursor:pointer}
-.n:hover{color:#58a6ff}
-.w{display:inline-flex;align-items:center;gap:.25rem;margin-left:.6rem;padding:.05rem .5rem;border:1px solid #30363d;border-radius:4px;color:#8b949e;text-decoration:none;font-size:1rem;font-weight:700;flex-shrink:0}
+.n{color:#c9d1d9;cursor:pointer;outline:none}
+.n:hover,.n:focus{color:#58a6ff;text-decoration:underline}
+.w{display:inline-flex;align-items:center;gap:.25rem;margin-left:.6rem;padding:.05rem .5rem;border:1px solid #30363d;border-radius:4px;color:#8b949e;text-decoration:none;font-size:1.05rem;font-weight:700;flex-shrink:0}
 .w:hover{background:#21262d;color:#58a6ff;border-color:#58a6ff}
 .g a{color:#58a6ff;font-style:italic;font-size:.85rem}
 .c.h{display:none}.s{color:#8b949e}.e{color:#f85149}
-@media(max-width:480px){body{padding:.6rem}#tree{font-size:.8rem}h1{font-size:1rem}.w{font-size:.9rem}}
+@media(max-width:480px){body{padding:.6rem}#tree{font-size:.8rem}h1{font-size:1rem}.w{font-size:.95rem}button{font-size:.75rem}}
 </style>
 </head>
 <body>
+<header>
 <h1>📁 Test01</h1>
+<span class="dot" id="dot" title="API status"></span>
+<input type="search" id="q" placeholder="search..." aria-label="search">
+<button id="exp" title="expand all folders">expand all</button>
+<button id="col" title="collapse all folders">collapse all</button>
+</header>
 <div id="tree"><p class="s">loading...</p></div>
 <script>
 const O="mamad7202202",R="Test01",B="main",
 P=`https://${O}.github.io/${R}`,G=`https://github.com/${O}/${R}`,
 A=`https://api.github.com/repos/${O}/${R}/git/trees/${B}?recursive=1`;
-const tree=document.getElementById("tree"),open=new Set();
+const tree=document.getElementById("tree"),dot=document.getElementById("dot"),qin=document.getElementById("q");
+let open=new Set(),paths=new Set(),root=null,etag=null,q="";
 const L=(h,t,c="")=>{const a=document.createElement("a");a.href=h;a.target="_blank";a.rel="noopener";a.textContent=t;if(c)a.className=c;return a};
-function bt(items){const r={c:{}};for(const it of items){const p=it.path.split("/");let n=r;
+const has=p=>paths.has(p+"/index.html");
+function syncHash(){const h=[...open].join(",");try{history.replaceState(null,"",h?"#"+h:location.pathname+location.search)}catch(e){}}
+function readHash(){open=new Set(location.hash.slice(1).split(",").filter(Boolean))}
+function bt(items){const r={c:{}};paths=new Set();for(const it of items){paths.add(it.path);const p=it.path.split("/");let n=r;
 for(let i=0;i<p.length;i++){const k=p[i];n.c[k]??={name:k,path:p.slice(0,i+1).join("/"),type:i===p.length-1?it.type:"tree",c:{}};n=n.c[k]}}return r.c}
+function ft(nodes){const o={};for(const k in nodes){const n=nodes[k],self=n.name.toLowerCase().includes(q),kids=n.c?ft(n.c):{};
+if(self||Object.keys(kids).length)o[k]={...n,c:kids}}return o}
 function rn(nodes,pre=""){const f=document.createDocumentFragment();
 const keys=Object.keys(nodes).sort((a,b)=>(nodes[a].type==="tree"?0:1)-(nodes[b].type==="tree"?0:1)||a.localeCompare(b));
-keys.forEach((k,idx)=>{const n=nodes[k],last=idx===keys.length-1,dir=n.type==="tree",op=open.has(n.path)||!dir;
+keys.forEach((k,idx)=>{const n=nodes[k],last=idx===keys.length-1,dir=n.type==="tree",op=q?true:(open.has(n.path)||!dir);
 const br=last?"└── ":"├── ",cp=pre+(last?"    ":"│   ");
 const row=document.createElement("div");row.className="r";
 const p=document.createElement("span");p.className="p";p.textContent=pre+br;
-const t=document.createElement("span");t.className="t";
+const t=document.createElement("span");t.className="t";t.setAttribute("aria-hidden","true");
 const ic=document.createElement("span");ic.className="i";ic.textContent=dir?"📁":"📄";
 let nm;
 if(dir){
-  nm=document.createElement("span");nm.className="n";nm.textContent=n.name+"/";
-  const tog=()=>{const kd=row.nextElementSibling;if(!kd)return;
-    const h=kd.classList.toggle("h");t.textContent=h?"▸":"▾";h?open.delete(n.path):open.add(n.path)};
+  nm=document.createElement("span");nm.className="n";nm.textContent=n.name+"/";nm.tabIndex=0;
+  nm.setAttribute("role","button");nm.setAttribute("aria-expanded",op);
+  const tog=()=>{if(q)return;const kd=row.nextElementSibling;if(!kd)return;
+    const h=kd.classList.toggle("h");t.textContent=h?"▸":"▾";nm.setAttribute("aria-expanded",!h);
+    h?open.delete(n.path):open.add(n.path);syncHash()};
   t.textContent=op?"▾":"▸";t.onclick=tog;nm.onclick=tog;
+  nm.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tog()}};
 }else{
   t.classList.add("e");t.textContent=" ";
   nm=L(`${G}/blob/${B}/${n.path}`,n.name);
 }
 row.append(p,t,ic,nm);
-if(dir){const w=L(`${P}/${n.path}/`,"↗ web","w");w.title="Open website";row.appendChild(w)}
+if(dir&&has(n.path)){const w=L(`${P}/${n.path}/`,"↗ web","w");w.title="Open website";row.appendChild(w)}
 f.appendChild(row);
 if(dir){const kd=document.createElement("div");kd.className="c"+(op?"":" h");
 const gr=document.createElement("div");gr.className="r g";
@@ -64,10 +86,29 @@ const gp=document.createElement("span");gp.className="p";gp.textContent=cp+(keys
 gr.append(gp,L(`${P}/${n.path}/`,"↗ go to directory"));
 kd.appendChild(gr);kd.appendChild(rn(n.c,cp));f.appendChild(kd)}});
 return f}
-async function ld(){try{const r=await fetch(A);if(!r.ok)throw new Error("HTTP "+r.status);
-const d=await r.json(),u=rn(bt(d.tree));tree.innerHTML="";tree.appendChild(u)}
-catch(e){if(!tree.querySelector(".r"))tree.innerHTML=`<p class="s e">error: ${e.message}</p>`}}
-ld();setInterval(ld,30000);
+function rr(){const sy=window.scrollY;
+tree.innerHTML="";
+const view=root?(q?ft(root):root):{};
+if(!Object.keys(view).length){tree.innerHTML=`<p class="s">${q?"no match":"empty"}</p>`;return}
+tree.appendChild(rn(view,""));window.scrollTo(0,sy)}
+function allPaths(nodes,acc=[]){for(const k in nodes){const n=nodes[k];if(n.type==="tree"){acc.push(n.path);allPaths(n.c,acc)}}return acc}
+async function ld(){try{
+  const h={};if(etag)h["If-None-Match"]=etag;
+  const r=await fetch(A,{headers:h});
+  dot.classList.remove("err");
+  if(r.status===304)return;
+  if(!r.ok)throw new Error("HTTP "+r.status);
+  etag=r.headers.get("ETag");
+  const d=await r.json();root=bt(d.tree);rr()
+}catch(e){
+  dot.classList.add("err");dot.title="API error: "+e.message;
+  if(!tree.querySelector(".r"))tree.innerHTML=`<p class="s e">error: ${e.message}</p>`
+}}
+qin.addEventListener("input",()=>{q=qin.value.trim().toLowerCase();rr()});
+document.getElementById("exp").onclick=()=>{if(!root)return;allPaths(root).forEach(p=>open.add(p));syncHash();rr()};
+document.getElementById("col").onclick=()=>{open.clear();syncHash();rr()};
+window.addEventListener("hashchange",()=>{readHash();rr()});
+readHash();ld();setInterval(ld,120000);
 </script>
 </body>
 </html>
