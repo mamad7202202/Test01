@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-t="dark" data-en="Docs — Dragon Agent Mobile" data-fa="مستندات — دراگون ایجنت موبایل">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Docs — Dragon Agent Mobile</title>
+<meta name="description" content="AI agent with hybrid memory for Android and iOS. Bring your own key; everything stays on your device.">
+<meta name="theme-color" content="#0A0807">
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+<script>try{var d=document.documentElement,s=localStorage,t=s.t||(matchMedia("(prefers-color-scheme:light)").matches?"light":"dark"),l=s.l||((navigator.language||"").slice(0,2)=="fa"?"fa":"en");d.dataset.t=t;d.lang=l;d.dir=l=="fa"?"rtl":"ltr"}catch(e){}document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<header class="bar"><svg class="hs" viewBox="0 0 80 56" preserveAspectRatio="none" aria-hidden="true"><path d="M80 9H54L42 1L40 12L28 4L30 16L12 20L2 29L12 33L5 42L21 42L31 50L47 47H80"/><path class="eye" d="M24 25L33 23L31 28Z"/></svg>
+<div class="bd">
+<a class="brand" href="index.html"><img src="assets/logo.png" onerror="this.onerror=null;this.src='assets/logo.svg'" alt="" width="28" height="28"><span>Dragon Agent</span></a>
+<nav class="nav"><a href="index.html"><span data-l="en">Home</span><span data-l="fa">خانه</span></a><a href="docs.html" class=on><span data-l="en">Docs</span><span data-l="fa">مستندات</span></a><a href="https://github.com/mamad7202202/dragon-agent-mobile">GitHub</a></nav>
+<button class="ib hb" id="lg" aria-label="Language"><span data-l="en">فا</span><span data-l="fa">EN</span></button>
+<button class="ib hb" id="tt" aria-label="Theme"><svg viewBox="0 0 24 24"><g class="su"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M5 19l1.4-1.4M17.6 6.4L19 5"/></g><path class="mo" d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>
+<button class="ib hb mb" id="mb" aria-label="Menu" aria-expanded="false"><span class="bi"><i></i><i></i></span></button>
+</div><svg class="ts" viewBox="0 0 96 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 9H20L28 1L34 9H46L60 17L68 12L70 23L96 28L70 33L68 44L60 39L46 47H34L28 55L20 47H0"/></svg></header>
+<div class="scrim"></div>
+<div class="sheet pl"><div><a href="index.html"><span data-l="en">Home</span><span data-l="fa">خانه</span></a><a href="docs.html" class=on><span data-l="en">Docs</span><span data-l="fa">مستندات</span></a><a href="https://github.com/mamad7202202/dragon-agent-mobile">GitHub</a></div></div>
+<div class="w docs">
+<aside><nav id="toc"><a href="#start"><span data-l="en">Get started</span><span data-l="fa">شروع</span></a><a href="#providers"><span data-l="en">Providers</span><span data-l="fa">ارائه‌دهنده‌ها</span></a><a href="#memory"><span data-l="en">Memory</span><span data-l="fa">حافظه</span></a><a href="#tools"><span data-l="en">Tools</span><span data-l="fa">ابزارها</span></a><a href="#commands"><span data-l="en">Commands</span><span data-l="fa">دستورها</span></a><a href="#updates"><span data-l="en">Updates</span><span data-l="fa">به‌روزرسانی</span></a><a href="#faq"><span data-l="en">FAQ</span><span data-l="fa">پرسش‌ها</span></a></nav></aside>
+<main class="doc">
+<section class="rv" id="start">
+<div data-l="en">
+<h2>Get started</h2>
+<p>Four steps, about a minute. You need the APK and one API key.</p>
+<ol>
+<li><b>Install.</b> Download from the <a href="https://github.com/mamad7202202/dragon-agent-mobile/releases/tag/latest">latest release</a> and sideload it. Android: <code>Dragon-Agent-android-arm64.apk</code> fits most phones, <code>-universal</code> covers the rest. iOS: install <code>Dragon-Agent-iOS-unsigned.ipa</code> with Sideloadly or AltStore.</li>
+<li><b>Pick a provider.</b> Google AI Studio (free keys), OpenRouter (one key, many models) or Ollama and LM Studio on your own machine.</li>
+<li><b>Paste your key.</b> It stays in the app’s private storage and goes only to that provider. For local models use your computer’s LAN address, like <code>http://192.168.1.10:11434/v1</code>, not localhost.</li>
+<li><b>Choose a model.</b> Tap a suggestion or type any id, then try: “Remember that my sister’s name is Sara”.</li>
+</ol>
+</div>
+<div data-l="fa">
+<h2>شروع</h2>
+<p>چهار قدم، حدود یک دقیقه. فقط یک APK و یک کلید API لازم داری.</p>
+<ol>
+<li><b>نصب.</b> از <a href="https://github.com/mamad7202202/dragon-agent-mobile/releases/tag/latest">آخرین ریلیز</a> دانلود و نصب دستی کن. اندروید: <code>Dragon-Agent-android-arm64.apk</code> برای بیشتر گوشی‌ها مناسب است و نسخه <code>universal</code> بقیه را پوشش می‌دهد. iOS: فایل <code>Dragon-Agent-iOS-unsigned.ipa</code> را با Sideloadly یا AltStore نصب کن.</li>
+<li><b>ارائه‌دهنده را انتخاب کن.</b> Google AI Studio (کلید رایگان)، OpenRouter (یک کلید، مدل‌های فراوان) یا Ollama و LM Studio روی کامپیوتر خودت.</li>
+<li><b>کلید را وارد کن.</b> کلید فقط در حافظه خصوصی برنامه می‌ماند و مستقیم به همان ارائه‌دهنده می‌رود. برای مدل‌های محلی به‌جای localhost از آدرس شبکه کامپیوترت استفاده کن، مثل <code>http://192.168.1.10:11434/v1</code>.</li>
+<li><b>مدل را انتخاب کن.</b> یکی از پیشنهادها را بزن یا هر شناسه‌ای را تایپ کن، بعد بگو: «یادت باشه اسم خواهرم سارا است».</li>
+</ol>
+</div>
+</section>
+<section class="rv" id="providers">
+<div data-l="en">
+<h2>Providers and models</h2>
+<p>Dragon speaks two protocols: OpenAI-compatible and Anthropic-native. A preset fills in the URL and protocol for you.</p>
+<div class="tw"><table><thead><tr><th>preset</th><th>base URL</th><th><span data-l="en">Notes</span><span data-l="fa">توضیح</span></th></tr></thead><tbody><tr><td>google</td><td><code>…/v1beta/openai</code></td><td><span data-l="en">Free keys</span><span data-l="fa">کلید رایگان</span></td></tr><tr><td>openrouter</td><td><code>openrouter.ai/api/v1</code></td><td><span data-l="en">Many models, web search</span><span data-l="fa">مدل‌های فراوان، جستجوی وب</span></td></tr><tr><td>openai</td><td><code>api.openai.com/v1</code></td><td><span data-l="en">Exact token counts</span><span data-l="fa">شمارش دقیق توکن</span></td></tr><tr><td>anthropic</td><td><code>api.anthropic.com/v1</code></td><td><span data-l="en">Native thinking and search</span><span data-l="fa">تفکر و جستجوی بومی</span></td></tr><tr><td>groq</td><td><code>api.groq.com/openai/v1</code></td><td><span data-l="en">Very fast</span><span data-l="fa">بسیار سریع</span></td></tr><tr><td>deepseek</td><td><code>api.deepseek.com/v1</code></td><td><span data-l="en">Chat and reasoner</span><span data-l="fa">چت و استدلالی</span></td></tr><tr><td>ollama</td><td><code>localhost:11434/v1</code></td><td><span data-l="en">Use your PC’s LAN IP</span><span data-l="fa">آی‌پی شبکه کامپیوتر</span></td></tr><tr><td>lmstudio</td><td><code>localhost:1234/v1</code></td><td><span data-l="en">Same as above</span><span data-l="fa">مثل بالا</span></td></tr><tr><td>custom</td><td><code>your endpoint</code></td><td><span data-l="en">Any OpenAI-compatible</span><span data-l="fa">سازگار با OpenAI</span></td></tr></tbody></table></div>
+<ul>
+<li><b>Switch models.</b> Tap the model chip in the top bar. It applies from the next message.</li>
+<li><b>Deep thinking.</b> OpenAI-compatible APIs get <code>reasoning_effort</code> low, medium or high. Anthropic gets a real 2k, 8k or 16k thinking budget. Tap the Thinking pill to read the reasoning.</li>
+<li><b>Web search.</b> OpenRouter appends <code>:online</code>; Anthropic uses its server-side <code>web_search</code>, up to three per turn.</li>
+<li><b>Usage.</b> When a provider reports it, each answer shows a small token badge.</li>
+</ul>
+</div>
+<div data-l="fa">
+<h2>ارائه‌دهنده‌ها و مدل‌ها</h2>
+<p>دراگون دو پروتکل را می‌فهمد: سازگار با OpenAI و Anthropic بومی. با انتخاب پیش‌تنظیم، آدرس و پروتکل خودکار تنظیم می‌شود.</p>
+<div class="tw"><table><thead><tr><th>preset</th><th>base URL</th><th><span data-l="en">Notes</span><span data-l="fa">توضیح</span></th></tr></thead><tbody><tr><td>google</td><td><code>…/v1beta/openai</code></td><td><span data-l="en">Free keys</span><span data-l="fa">کلید رایگان</span></td></tr><tr><td>openrouter</td><td><code>openrouter.ai/api/v1</code></td><td><span data-l="en">Many models, web search</span><span data-l="fa">مدل‌های فراوان، جستجوی وب</span></td></tr><tr><td>openai</td><td><code>api.openai.com/v1</code></td><td><span data-l="en">Exact token counts</span><span data-l="fa">شمارش دقیق توکن</span></td></tr><tr><td>anthropic</td><td><code>api.anthropic.com/v1</code></td><td><span data-l="en">Native thinking and search</span><span data-l="fa">تفکر و جستجوی بومی</span></td></tr><tr><td>groq</td><td><code>api.groq.com/openai/v1</code></td><td><span data-l="en">Very fast</span><span data-l="fa">بسیار سریع</span></td></tr><tr><td>deepseek</td><td><code>api.deepseek.com/v1</code></td><td><span data-l="en">Chat and reasoner</span><span data-l="fa">چت و استدلالی</span></td></tr><tr><td>ollama</td><td><code>localhost:11434/v1</code></td><td><span data-l="en">Use your PC’s LAN IP</span><span data-l="fa">آی‌پی شبکه کامپیوتر</span></td></tr><tr><td>lmstudio</td><td><code>localhost:1234/v1</code></td><td><span data-l="en">Same as above</span><span data-l="fa">مثل بالا</span></td></tr><tr><td>custom</td><td><code>your endpoint</code></td><td><span data-l="en">Any OpenAI-compatible</span><span data-l="fa">سازگار با OpenAI</span></td></tr></tbody></table></div>
+<ul>
+<li><b>تعویض مدل.</b> روی چیپ مدل در نوار بالا بزن. از پیام بعدی اعمال می‌شود.</li>
+<li><b>تفکر عمیق.</b> در APIهای سازگار با OpenAI مقدار <code>reasoning_effort</code> روی low، medium یا high می‌رود. در Anthropic بودجه واقعی ۲، ۸ یا ۱۶ هزار توکن تفکر داری. برای دیدن استدلال روی نوار «در حال فکر» بزن.</li>
+<li><b>جستجوی وب.</b> OpenRouter پسوند <code>:online</code> می‌گیرد و Anthropic از <code>web_search</code> سمت سرور استفاده می‌کند، تا سه جستجو در هر نوبت.</li>
+<li><b>مصرف.</b> اگر ارائه‌دهنده گزارش دهد، زیر هر پاسخ یک نشان کوچک تعداد توکن دیده می‌شود.</li>
+</ul>
+</div>
+</section>
+<section class="rv" id="memory">
+<div data-l="en">
+<h2>Memory</h2>
+<p>Two engines run on-device and offline, and one of them is injected every turn. Switching in Settings is never destructive; both stores stay on disk.</p>
+<h3>Hybrid</h3>
+<p>Facts live in <code>facts.json</code>. Each turn the top few are recalled with this score and injected:</p>
+<pre><code>score = cosine(query, fact) × (0.55 + 0.45 × importance) × (0.7 + 0.3 × recency)
+recency = 1 / (1 + age_days / 14)</code></pre>
+<h3>Outline</h3>
+<p>The same knowledge as named sections of one-line bullets. The whole outline is injected in a few hundred tokens, however much the dragon knows.</p>
+<h3>Rules</h3>
+<p><code>MEMORY.md</code> holds standing rules and loads in both engines every turn. Edit it under Memories, Rules. The dragon can add a rule with <code>remember_rule</code> after asking you.</p>
+<h3>Sessions</h3>
+<p>Every chat is a resumable transcript. Long ones fold their oldest turns into a summary past the compaction threshold, so context never overflows.</p>
+</div>
+<div data-l="fa">
+<h2>حافظه</h2>
+<p>دو موتور حافظه روی دستگاه و بدون اینترنت کار می‌کنند و در هر نوبت یکی از آن‌ها به مدل داده می‌شود. جابه‌جایی در تنظیمات مخرب نیست؛ هر دو ذخیره روی دیسک می‌مانند.</p>
+<h3>ترکیبی</h3>
+<p>واقعیت‌ها در <code>facts.json</code> هستند. در هر نوبت چند مورد برتر با این امتیاز انتخاب و تزریق می‌شود:</p>
+<pre><code>score = cosine(query, fact) × (0.55 + 0.45 × importance) × (0.7 + 0.3 × recency)
+recency = 1 / (1 + age_days / 14)</code></pre>
+<h3>طرح کلی (Outline)</h3>
+<p>همان دانش در قالب بخش‌های نام‌دار با گلوله‌های تک‌خطی. کل آن در چند صد توکن تزریق می‌شود، هر قدر که اژدها بداند.</p>
+<h3>قوانین</h3>
+<p>فایل <code>MEMORY.md</code> دستورهای دائمی را نگه می‌دارد و در هر دو موتور هر نوبت بارگذاری می‌شود. آن را از «حافظه‌ها»، بخش «قوانین» ویرایش کن. اژدها هم می‌تواند بعد از پرسیدن از تو با <code>remember_rule</code> قانون اضافه کند.</p>
+<h3>نشست‌ها</h3>
+<p>هر گفتگو یک رونوشت قابل ازسرگیری است. گفتگوهای طولانی بعد از آستانه فشرده‌سازی، نوبت‌های قدیمی را به خلاصه تبدیل می‌کنند تا context هرگز سرریز نشود.</p>
+</div>
+</section>
+<section class="rv" id="tools">
+<div data-l="en">
+<h2>Tools</h2>
+<p>The dragon calls tools, and each call shows up as a chip with its arguments, result and status. Tap a chip to read the raw JSON. There is no filesystem, contacts or microphone access.</p>
+<h3>Run freely</h3><div class="chips"><code>save_memory</code><code>memory_write</code><code>memory_read</code><code>list_memories</code><code>datetime</code><code>calculator</code><code>device_info</code></div>
+<h3>Ask first</h3><div class="chips"><code>forget_memory</code><code>memory_delete</code><code>remember_rule</code></div>
+<p>When one of these fires, the turn pauses and a card offers <b>Allow once</b>, <b>Always (this session)</b> or <b>Deny</b>. A denied call returns <code>{"denied": true}</code>, so the dragon adapts instead of failing. The rule: remembering is free, destroying or committing memory asks.</p>
+</div>
+<div data-l="fa">
+<h2>ابزارها</h2>
+<p>اژدها ابزار صدا می‌زند و هر فراخوانی به‌شکل یک چیپ با آرگومان‌ها، نتیجه و وضعیت دیده می‌شود. برای دیدن JSON خام روی چیپ بزن. دسترسی به فایل‌ها، مخاطبین یا میکروفون وجود ندارد.</p>
+<h3>آزاد</h3><div class="chips"><code>save_memory</code><code>memory_write</code><code>memory_read</code><code>list_memories</code><code>datetime</code><code>calculator</code><code>device_info</code></div>
+<h3>ابتدا می‌پرسد</h3><div class="chips"><code>forget_memory</code><code>memory_delete</code><code>remember_rule</code></div>
+<p>وقتی یکی از این‌ها اجرا شود، نوبت متوقف می‌شود و کارتی سه گزینه می‌دهد: <b>یک‌بار اجازه</b>، <b>همیشه (در این نشست)</b> یا <b>رد</b>. در صورت رد، <code>{"denied": true}</code> برمی‌گردد و اژدها مسیرش را عوض می‌کند. قاعده ساده: یادگرفتن آزاد است؛ حذف یا ثبت دائمی همیشه می‌پرسد.</p>
+</div>
+</section>
+<section class="rv" id="commands">
+<div data-l="en">
+<h2>Commands</h2>
+<p>Typed in the message box, they run locally and spend no tokens.</p>
+<ul><li><code>/new</code> Start a fresh session</li><li><code>/remember &lt;fact&gt;</code> Pin a long-term fact</li><li><code>/forget &lt;id&gt;</code> Delete a fact by id prefix</li><li><code>/memories</code> Open the memory manager</li><li><code>/clear</code> Wipe facts and bullets, keep MEMORY.md</li><li><code>/help</code> List commands</li></ul>
+</div>
+<div data-l="fa">
+<h2>دستورها</h2>
+<p>در کادر پیام تایپ می‌شوند، محلی اجرا می‌شوند و توکن مصرف نمی‌کنند.</p>
+<ul><li><code>/new</code> شروع نشست تازه</li><li><code>/remember &lt;fact&gt;</code> ثبت یک واقعیت بلندمدت</li><li><code>/forget &lt;id&gt;</code> حذف واقعیت با پیشوند شناسه</li><li><code>/memories</code> باز کردن مدیریت حافظه</li><li><code>/clear</code> پاک‌کردن واقعیت‌ها و گلوله‌ها، بدون MEMORY.md</li><li><code>/help</code> فهرست دستورها</li></ul>
+</div>
+</section>
+<section class="rv" id="updates">
+<div data-l="en">
+<h2>Updates</h2>
+<p>The app updates itself from GitHub releases. Keys, memories and sessions survive every update.</p>
+<ol>
+<li>When the device comes online, and once at launch, it checks the rolling <a href="https://github.com/mamad7202202/dragon-agent-mobile/releases/tag/latest">latest release</a>.</li>
+<li>A newer version shows a banner. You can also check in Settings.</li>
+<li>Tapping it downloads the APK with progress, then opens the system installer.</li>
+<li>The new build installs over the old one.</li>
+</ol>
+<p>It stacks because Android only upgrades in place when the signature and package id match and the version number grows. Every release uses the same keystore and one <code>applicationId</code>, with a rising build number. Builds before v1.1.0 used per-build debug keys, so uninstall those once.</p>
+<p>Versions follow <code>X.Y.Z+N</code> in <code>pubspec.yaml</code>. Every push to <code>main</code> is tagged <code>vX.Y.Z</code> and published as a release and as the rolling <code>latest</code>. On iOS, Apple blocks in-app installs, so the banner opens the releases page.</p>
+</div>
+<div data-l="fa">
+<h2>به‌روزرسانی</h2>
+<p>برنامه خودش را از ریلیزهای GitHub به‌روز می‌کند. کلیدها، حافظه‌ها و نشست‌ها بعد از هر به‌روزرسانی می‌مانند.</p>
+<ol>
+<li>وقتی دستگاه آنلاین شود و یک بار هنگام اجرا، <a href="https://github.com/mamad7202202/dragon-agent-mobile/releases/tag/latest">ریلیز latest</a> بررسی می‌شود.</li>
+<li>نسخه جدید یک بنر نشان می‌دهد. از تنظیمات هم می‌توانی دستی بررسی کنی.</li>
+<li>با زدن بنر، APK با نوار پیشرفت دانلود می‌شود و نصب‌کننده سیستم باز می‌شود.</li>
+<li>نسخه جدید روی قبلی نصب می‌شود.</li>
+</ol>
+<p>دلیل نصب روی نسخه قبلی: اندروید فقط وقتی در همان جا ارتقا می‌دهد که امضا و شناسه بسته یکی باشد و شماره نسخه بالا برود. هر ریلیز با همان keystore و یک <code>applicationId</code> و شماره ساخت افزایشی ساخته می‌شود. نسخه‌های قبل از v1.1.0 کلید دیباگ جداگانه داشتند؛ آن‌ها را یک بار حذف کن.</p>
+<p>نسخه‌ها از <code>X.Y.Z+N</code> در <code>pubspec.yaml</code> می‌آیند. هر push به <code>main</code> با تگ <code>vX.Y.Z</code> هم ریلیز رسمی می‌شود و هم ریلیز متحرک <code>latest</code>. در iOS اپل نصب درون‌برنامه‌ای را مسدود کرده، پس بنر صفحه ریلیزها را باز می‌کند.</p>
+</div>
+</section>
+<section class="rv" id="faq">
+<div data-l="en">
+<h2>FAQ</h2>
+<details><summary>Where does my API key go?</summary><div class="dc">Into private storage on your phone. Requests go straight to your provider. There is no backend, analytics or telemetry.</div></details><details><summary>Does memory cost extra tokens?</summary><div class="dc">A little, on purpose. Hybrid injects up to six scored facts; Outline injects a few hundred tokens no matter how much it knows.</div></details><details><summary>Why is web search off for my provider?</summary><div class="dc">Native search exists for OpenRouter and Anthropic only. Other providers show it as unavailable instead of pretending.</div></details><details><summary>Ollama won’t connect</summary><div class="dc">On a phone, <code>localhost</code> is the phone. Use your computer’s LAN IP, keep both devices on one network and set <code>OLLAMA_HOST=0.0.0.0</code>.</div></details><details><summary>How do I report a bug?</summary><div class="dc">Open an issue on <a href="https://github.com/mamad7202202/dragon-agent-mobile/issues">GitHub</a> and paste the message from the in-app error screen.</div></details>
+</div>
+<div data-l="fa">
+<h2>پرسش‌های متداول</h2>
+<details><summary>کلید API من کجا می‌رود؟</summary><div class="dc">در حافظه خصوصی گوشی. درخواست‌ها مستقیم به ارائه‌دهنده‌ات می‌رود. سرور، تحلیل‌گر یا ردیابی وجود ندارد.</div></details><details><summary>آیا حافظه توکن اضافه مصرف می‌کند؟</summary><div class="dc">کمی، عمداً. حالت ترکیبی تا شش واقعیت امتیازدار و حالت Outline چند صد توکن را، فارغ از حجم حافظه، تزریق می‌کند.</div></details><details><summary>چرا جستجوی وب برای ارائه‌دهنده‌ام غیرفعال است؟</summary><div class="dc">جستجوی بومی فقط برای OpenRouter و Anthropic هست. بقیه به‌جای تظاهر، غیرفعال نشان داده می‌شوند.</div></details><details><summary>Ollama وصل نمی‌شود</summary><div class="dc">روی گوشی، <code>localhost</code> خود گوشی است. از IP شبکه کامپیوتر استفاده کن، هر دو دستگاه در یک شبکه باشند و <code>OLLAMA_HOST=0.0.0.0</code> را تنظیم کن.</div></details><details><summary>چطور باگ گزارش کنم؟</summary><div class="dc">در <a href="https://github.com/mamad7202202/dragon-agent-mobile/issues">GitHub</a> یک issue باز کن و پیام صفحه خطای برنامه را کپی کن.</div></details>
+</div>
+</section>
+</main>
+</div>
+<footer class="ft"><span>© 2026 mamad720220, MIT</span><a href="https://github.com/mamad7202202/dragon-agent-mobile">Source</a><a href="https://github.com/mamad7202202/dragon-agent">Desktop</a><a href="https://t.me/mamad720220">Telegram</a></footer>
+<script src="js/app.js"></script>
+</body>
+</html>
