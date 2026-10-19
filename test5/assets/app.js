@@ -3,6 +3,7 @@
 function $(s){return d.querySelector(s)}
 var tb=$('#th');tb&&tb.addEventListener('click',function(){var t=h.dataset.t=='dark'?'light':'dark';h.dataset.t=t;try{localStorage.t=t}catch(e){}});
 var mb=$('#mb');mb&&mb.addEventListener('click',function(){d.body.classList.toggle('open')});
+var sd=$('.side');if(sd&&mb){var cb=d.createElement('button');cb.className='ib sclose';cb.setAttribute('aria-label',mb.getAttribute('aria-label'));cb.textContent='×';cb.addEventListener('click',function(){d.body.classList.remove('open')});sd.insertBefore(cb,sd.firstChild)}
 var sc=$('.scrim');sc&&sc.addEventListener('click',function(){d.body.classList.remove('open')});
 d.addEventListener('keydown',function(e){if(e.key=='Escape')d.body.classList.remove('open')});
 var box=$('#stats');if(!box)return;
